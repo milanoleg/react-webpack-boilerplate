@@ -1,8 +1,10 @@
 import path from 'path';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import CleanWebPackPlugin from 'clean-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const isDevMode = process.env.NODE_ENV !== 'production';
 
-export default ({
+export default {
     entry: {
         main: './src/index.js'
     },
@@ -23,7 +25,7 @@ export default ({
                 test: /\.s(a|c)ss$/,
                 use: [
                     {
-                        loader: 'style-loader'
+                        loader: isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader
                     },
                     {
                         loader: 'css-loader'
@@ -45,4 +47,4 @@ export default ({
         }),
         new CleanWebPackPlugin(['dist'])
     ]
-})
+};
