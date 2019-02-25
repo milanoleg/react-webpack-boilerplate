@@ -7,6 +7,6 @@ export default merge(commonConfig, {
     devServer: {
         host: 'localhost',
         port: 3000,
-        open: false
+        open: true
     }
 });
