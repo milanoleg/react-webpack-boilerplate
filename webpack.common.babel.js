@@ -37,6 +37,18 @@ export default {
                         loader: 'sass-loader'
                     }
                 ]
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader: 'file-loader',
+                options: {
+                    name(file) {
+                        if (isDevMode) {
+                            return '[path][name].[ext]';
+                        }
+                        return '/images/[hash].[ext]';
+                    }
+                }
             }
         ]
     },

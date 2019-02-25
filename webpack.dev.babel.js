@@ -9,5 +9,4 @@ export default merge(commonConfig, {
         port: 3000,
         open: false
     }
-
 });
