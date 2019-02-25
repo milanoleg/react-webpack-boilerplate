@@ -40,15 +40,31 @@ export default {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: 'file-loader',
-                options: {
-                    name(file) {
-                        if (isDevMode) {
-                            return '[path][name].[ext]';
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name(file) {
+                            if (isDevMode) {
+                                return '[path][name].[ext]';
+                            }
+                            return '/images/[hash].[ext]';
                         }
-                        return '/images/[hash].[ext]';
                     }
-                }
+                }]
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name(file) {
+                            if (isDevMode) {
+                                return '[path][name].[ext]';
+                            }
+                            return '/fonts/[hash].[ext]';
+                        }
+                    }
+                }]
             }
         ]
     },
