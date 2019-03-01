@@ -11,3 +11,6 @@ node_modules/
 
 # IDE
 .idea
+
+# Tests snapshots
+src/**/__snapshots__
