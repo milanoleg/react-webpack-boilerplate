@@ -1,2 +1,2 @@
 # React GMP project
-React + Webpack + Babel Boilerplate 
+React + Webpack + Babel + Jest + Enzyme Boilerplate 
